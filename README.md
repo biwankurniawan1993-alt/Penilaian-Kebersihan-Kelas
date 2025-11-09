@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penilaian Kebersihan SMKS HEPWETI - Oktober 2025</title>
+    <title>Penilaian Kebersihan SMKS HEPWETI - November 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -40,9 +40,9 @@
             <div class="bg-white rounded-2xl shadow-lg p-8 mb-6">
                 <h1 class="text-4xl font-bold text-blue-900 mb-3">SMKS HEPWETI</h1>
                 <h2 class="text-2xl font-semibold text-green-700 mb-2">Laporan Penilaian Kebersihan</h2>
-                <p class="text-gray-600 text-lg">Bulan Oktober 2025</p>
+                <p class="text-gray-600 text-lg">Bulan November 2025</p>
                 <div class="mt-4 inline-block bg-blue-100 px-6 py-2 rounded-full">
-                    <p class="text-sm font-medium text-blue-800">📅 Tanggal Penilaian: 26 Oktober 2025</p>
+                    <p class="text-sm font-medium text-blue-800">📅 Tanggal Penilaian: November 2025</p>
                 </div>
             </div>
         </header>
@@ -490,29 +490,3 @@
         }
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9942c0a185635615',t:'MTc2MTQwNjE5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>using UnityEngine;
-
-public class HeroMovement : MonoBehaviour
-{
-    public float moveSpeed = 5f;
-    Vector2 input;
-    Rigidbody rb;
-
-    void Awake() => rb = GetComponent<Rigidbody>();
-
-    // Panggil dari UI joystick: SetInput(x,y)
-    public void SetInput(Vector2 v) => input = v;
-
-    void FixedUpdate()
-    {
-        Vector3 move = new Vector3(input.x, 0, input.y) * moveSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(transform.position + move);
-
-        if (move.sqrMagnitude > 0.001f)
-        {
-            transform.forward = Vector3.Slerp(transform.forward, move.normalized, 0.2f);
-        }
-    }
-}
-
-
